@@ -1,25 +1,46 @@
 import React from 'react';
-import { Button, Text, Image, View } from 'react-native';
+import { Text, Image, View, StyleSheet } from 'react-native';
 
 export default function Abrigos() {
-    return(
-        <View>
-            <Text>Abrigos próximos:</Text>
-            <View style={{ flexDirection: 'row'}}>
-                <Image source={require('../assets/Church.png')} />
-                <View>
-                    <Text>Igreja Batista</Text>
+    return (
+        <View style={styles.container}>
+            <View style={styles.abrigos}>
+                <Image source={require('../assets/Church.png')} style={styles.image} />
+                <View style={styles.textContainer}>
+                    <Text style={styles.title}>Igreja Batista</Text>
                     <Text>R. Rio Xingu, 60 - Ibura de Baixo, Recife</Text>
                 </View>
             </View>
-            <View style={{ flexDirection: 'row'}}>
-                <Image source={require('../assets/school.png')}/>
-                <View>
-                    <Text>Escola Cecília Meireles</Text>
-                    <Text>R. Rio Douro, 72 - Ibura, Recife - PE</Text>
-                </View>
-            </View>
-
         </View>
     )
 }
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        alignItems: 'center',
+    },
+    abrigos: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        backgroundColor: '#fff',
+        borderRadius: 10,
+        padding: 5,
+        shadowColor: '#000',
+        shadowOpacity: 0.8,
+        shadowRadius: 2,
+        elevation: 5, // Elevação da sombra para Android
+    },
+    image: {
+        width: 50,
+        height: 50,
+        marginRight: 10,
+    },
+    textContainer: {
+        marginLeft: 10,
+    },
+    title: {
+        fontWeight: 'bold',
+        fontSize: 18,
+    },
+});
